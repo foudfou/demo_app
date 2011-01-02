@@ -8,6 +8,7 @@
 # gem install redgreen
 # sudo apt-get install libnotify-bin
 
+require 'test/unit/ui/console/testrunner'
 require 'redgreen'
 require 'autotest/timestamp'
 
