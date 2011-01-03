@@ -3,6 +3,10 @@ DemoApp::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
+  get "users/new"
+
+  match '/signup',  :to => 'users#new'
+
   match '/contact', :to => 'pages#contact'
   match '/about',   :to => 'pages#about'
   match '/help',    :to => 'pages#help'
