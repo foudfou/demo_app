@@ -1,5 +1,7 @@
 require 'rubygems'
 require 'spork'
+require 'gtk2' # libnotify no longer linked against a specific version of gtk
+               # => needs to be told which
 
 Spork.prefork do
   # Loading more in this block will cause your tests to run faster. However,

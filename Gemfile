@@ -6,6 +6,7 @@ gem 'sqlite3-ruby', '1.2.5', :require => 'sqlite3'
 group :development do
   gem 'rspec-rails', '2.1.0'
   gem 'annotate-models', '1.0.4'
+  gem 'gtk2' # libnotify needs to be told what version to use
 end
 
 group :test do
@@ -15,6 +16,7 @@ group :test do
   gem 'guard-spork'
   gem 'rb-fsevent'
   gem 'libnotify'
+  gem 'gtk2' # libnotify needs to be told what version to use
 end
 
 # Use unicorn as the web server
