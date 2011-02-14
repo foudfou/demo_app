@@ -55,11 +55,8 @@ describe "LayoutLinks" do
 
     before(:each) do
       @user = Factory(:user)
-      visit signin_path
-      # test_sign_in doesn’t work inside integration tests
-      fill_in :email,    :with => @user.email
-      fill_in :password, :with => @user.password
-      click_button
+      # test_sign_in doesn't work inside integration tests
+      integration_sign_in(@user)
     end
 
     it "should have a signout link" do
