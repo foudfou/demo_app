@@ -4,6 +4,9 @@ describe SessionsController do
   render_views
 
   describe "GET 'new'" do
+
+    it "should be in SSL"
+
     it "should be successful" do
       get 'new'
       response.should be_success
@@ -13,9 +16,12 @@ describe SessionsController do
       get :new
       response.should have_selector("title", :content => "Sign in")
     end
+
   end
 
   describe "POST 'create'" do
+
+    it "should be in SSL"
 
     describe "invalid signin" do
 
