@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
-# TODO: use SslRequirement
-# ssl_required :new, :create
+  # TODO: ssl_required :new, :create, :destroy
 
   def new
     @title = "Sign in"
