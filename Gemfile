@@ -9,7 +9,6 @@ gem 'will_paginate', '3.0.pre2'
 group :development do
   gem 'rspec-rails', '2.4.0'
   gem 'annotate-models', '1.0.4'
-  gem 'gtk2' # libnotify needs to be told what version to use
   gem 'faker', '0.3.1'
 end
 

@@ -254,6 +254,16 @@ describe UsersController do
         put :update, :id => @user, :user => @attr
         flash[:success].should =~ /updated/
       end
+
+      it "should not require password" do
+        @attr.delete(:password)
+        @attr.delete(:password_confirmation)
+        put :update, :id => @user, :user => @attr
+        @user.reload
+        @user.name.should  == @attr[:name]
+        @user.email.should == @attr[:email]
+      end
+
     end
 
   end

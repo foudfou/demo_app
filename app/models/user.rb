@@ -1,13 +1,16 @@
 # == Schema Information
-# Schema version: 20110103180626
+# Schema version: 20110217231907
 #
 # Table name: users
 #
-#  id         :integer         not null, primary key
-#  name       :string(255)
-#  email      :string(255)
-#  created_at :datetime
-#  updated_at :datetime
+#  id                 :integer         not null, primary key
+#  name               :string(255)
+#  email              :string(255)
+#  created_at         :datetime
+#  updated_at         :datetime
+#  encrypted_password :string(255)
+#  salt               :string(255)
+#  admin              :boolean
 #
 require 'digest'
 
@@ -31,7 +34,8 @@ class User < ActiveRecord::Base
   # Automatically create the virtual attribute 'password_confirmation'.
   validates :password, :presence     => true,
                        :confirmation => true,
-                       :length       => { :within => 6..40 }
+                       :length       => { :within => 6..40 },
+                       :if           => :password_required?
 
   before_save :encrypt_password
 
@@ -68,6 +72,10 @@ class User < ActiveRecord::Base
 
   def secure_hash(string)
     Digest::SHA2.hexdigest(string)
+  end
+
+  def password_required?
+    !(persisted? && password.nil? && password_confirmation.nil?)
   end
 
 end
