@@ -5,4 +5,5 @@
   sample application.
 </p>
 
-<%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
+<%= link_to "Sign up now!", signup_path, :class => "signup_button round" unless
+      signed_in? %>
