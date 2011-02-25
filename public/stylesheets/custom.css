@@ -137,6 +137,11 @@ td.sidebar {
   margin-bottom: -15px;
 }
 
+img.gravatar {
+    margin: 2px;
+    vertical-align: middle;
+}
+
 div.field, div.actions {
   margin-bottom: 10px;
 }

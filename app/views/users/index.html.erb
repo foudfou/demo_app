@@ -1,6 +1,10 @@
 <h1>All users</h1>
 
 <%= will_paginate %>
+<%= select_tag :per_page, options_for_select(@per_page_options, @per_page.to_i),
+    :id => "per_page_options",
+    :onchange => "location.href = location.pathname + '?per_page=' +
+               this.getValue()" %> per page
 
 <ul class="users">
   <%= render @users %>

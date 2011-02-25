@@ -8,7 +8,9 @@ class UsersController < ApplicationController
 
   def index
     @title = "All users"
-    @users = User.paginate(:page => params[:page])
+    @per_page_options = [10,20,50]
+    @per_page = params[:per_page] || 10
+    @users = User.paginate(:page => params[:page], :per_page => @per_page)
   end
 
   def show

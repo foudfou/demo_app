@@ -53,6 +53,22 @@ describe UsersController do
                                            :content => "Next")
       end
 
+      it "should have per_page options" do
+        get :index
+        response.should have_selector("select", :id => "per_page_options")
+      end
+
+      it "should paginate with correct per_page option" do
+        get :index, { :per_page => 10 }
+        response.should have_selector("div.pagination")
+        response.should have_selector("span.disabled", :content => "Previous")
+        response.should have_selector("a", :href => "/users?page=2&per_page=10",
+                                           :content => "2")
+        response.should have_selector("a", :href => "/users?page=2&per_page=10",
+                                           :content => "Next")
+        response.should have_selector(".users li", :count => 10)
+      end
+
       it "should not have 'delete' links" do
         @user.admin = false
         get :index
