@@ -139,7 +139,6 @@ td.sidebar {
 
 img.gravatar {
     margin: 2px;
-    vertical-align: middle;
 }
 
 div.field, div.actions {
@@ -195,6 +194,10 @@ ul.users {
 
 .users li {
   list-style: none;
+}
+
+.users img.gravatar {
+    vertical-align: middle;
 }
 
 /* Micropposts */
