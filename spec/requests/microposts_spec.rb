@@ -24,6 +24,8 @@ describe "Microposts" do
 
     describe "success" do
 
+      it "should decrease char-count div when typing"
+
       it "should make a new micropost" do
         content = "Lorem ipsum dolor sit amet"
         lambda do
