@@ -18,6 +18,27 @@ describe PagesController do
       response.should have_selector("title",
                                     :content => @base_title + " | Home")
     end
+
+    describe "for signed-in users" do
+
+      before(:each) do
+        @user = test_sign_in(Factory(:user))
+      end
+
+      it "should have the correct microposts' count (2) in the sidebar" do
+        mp1 = Factory(:micropost, :user => @user, :content => "Foo bar")
+        mp2 = Factory(:micropost, :user => @user, :content => "Baz quux")
+        get 'home'
+        response.should have_selector(".microposts", :content => "2 microposts")
+      end
+
+      it "should have the correct microposts' count (1) in the sidebar" do
+        mp1 = Factory(:micropost, :user => @user, :content => "Foo bar")
+        get 'home'
+        response.should have_selector(".microposts", :content => "1 micropost")
+      end
+    end
+
   end
 
   describe "GET 'contact'" do

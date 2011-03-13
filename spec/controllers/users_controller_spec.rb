@@ -177,6 +177,19 @@ describe UsersController do
       response.should have_selector("span.content", :content => mp2.content)
     end
 
+    it "should have the correct microposts' count (2) in the sidebar" do
+      mp1 = Factory(:micropost, :user => @user, :content => "Foo bar")
+      mp2 = Factory(:micropost, :user => @user, :content => "Baz quux")
+      get :show, :id => @user
+      response.should have_selector(".sidebar", :content => "Microposts 2")
+    end
+
+    it "should have the correct microposts' count (1) in the sidebar" do
+      mp1 = Factory(:micropost, :user => @user, :content => "Foo bar")
+      get :show, :id => @user
+      response.should have_selector(".sidebar", :content => "Microposts 1")
+    end
+
   end
 
   describe "POST 'create'" do

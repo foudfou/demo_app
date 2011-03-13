@@ -256,3 +256,7 @@ form.new_micropost textarea {
   height: 4em;
   margin-bottom: 0;
 }
+
+form.new_micropost div.char-count {
+  font-size: 0.80%;
+}
